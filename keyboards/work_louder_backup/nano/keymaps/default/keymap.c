@@ -13,30 +13,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#include QMK_KEYBOARD_H
 
-#include "nano.h"
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    /* Base */
+    [0] = LAYOUT(KC_PSCR, KC_LSFT, MO(1)),
+    [1] = LAYOUT(QK_BOOT, KC_LCTL, _______)};
 
-#if defined(ENCODER_ENABLE)
-bool encoder_update_kb(uint8_t index, bool clockwise) {
-    if (!encoder_update_user(index, clockwise)) { return false; }
-    if (clockwise) {
-        tap_code(KC_PGDN);
-    } else {
-        tap_code(KC_PGUP);
-    }
-    return true;
-}
-#endif
-
-#ifdef RGB_MATRIX_ENABLE
-led_config_t g_led_config = {
-    {
-        {  NO_LED, 1, 0 }
-    }, {
-        {  103,  32 }, {  122,  32 }
-    }, {
-        4, 4
-    }
-};
-
-#endif
+//  bool encoder_update_user(uint8_t index, bool clockwise) {
+//     if (clockwise) {
+//         tap_code(KC_PGDN);
+//     } else {
+//         tap_code(KC_PGUP);
+//     }
+//     return false;
+// }

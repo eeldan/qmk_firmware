@@ -14,29 +14,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "nano.h"
+#include "rgblight.h"
+#include "rgb_matrix.h"
 
-#if defined(ENCODER_ENABLE)
-bool encoder_update_kb(uint8_t index, bool clockwise) {
-    if (!encoder_update_user(index, clockwise)) { return false; }
-    if (clockwise) {
-        tap_code(KC_PGDN);
-    } else {
-        tap_code(KC_PGUP);
-    }
-    return true;
-}
-#endif
+#ifdef RGBLIGHT_ENABLE
+#undef WS2812_DI_PIN
+#define WS2812_DI_PIN RGBLIGHT_DI_PIN
 
-#ifdef RGB_MATRIX_ENABLE
-led_config_t g_led_config = {
-    {
-        {  NO_LED, 1, 0 }
-    }, {
-        {  103,  32 }, {  122,  32 }
-    }, {
-        4, 4
-    }
+#define ws2812_init ws2812_rgb_init
+#define ws2812_set_color ws2812_rgb_set_color
+#define ws2812_set_color_all ws2812_rgb_set_color_all
+#define ws2812_flush ws2812_rgb_flush
+
+#include "ws2812_bitbang.c"
+
+const rgblight_driver_t rgblight_driver = {
+    .init          = ws2812_init,
+    .set_color     = ws2812_set_color,
+    .set_color_all = ws2812_set_color_all,
+    .flush         = ws2812_flush,
 };
-
 #endif

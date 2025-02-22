@@ -1,5 +1,5 @@
 /*
-Copyright 2021 Work Louder
+Copyright 2021 Drashna Jael're
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -17,22 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#define RGBLIGHT_DI_PIN E6
-
-#define RGB_MATRIX_DISABLE_KEYCODES
-
-/*
- * Feature disable options
- *  These options are also useful to firmware size reduction.
- */
-
-/* disable debug print */
-//#define NO_DEBUG
-
-/* disable print */
-//#define NO_PRINT
-
-/* disable action features */
-//#define NO_ACTION_LAYER
-//#define NO_ACTION_TAPPING
-//#define NO_ACTION_ONESHOT
+#ifndef TAP_CODE_DELAY
+#    define TAP_CODE_DELAY 10
+#endif

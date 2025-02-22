@@ -14,29 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "nano.h"
+#pragma once
 
-#if defined(ENCODER_ENABLE)
-bool encoder_update_kb(uint8_t index, bool clockwise) {
-    if (!encoder_update_user(index, clockwise)) { return false; }
-    if (clockwise) {
-        tap_code(KC_PGDN);
-    } else {
-        tap_code(KC_PGUP);
-    }
-    return true;
-}
-#endif
-
-#ifdef RGB_MATRIX_ENABLE
-led_config_t g_led_config = {
-    {
-        {  NO_LED, 1, 0 }
-    }, {
-        {  103,  32 }, {  122,  32 }
-    }, {
-        4, 4
-    }
-};
-
-#endif
+#include "quantum.h"
+#include "rgb_functions.h"
