@@ -30,5 +30,12 @@
     },
     "clangd.arguments": [
         "--header-insertion=never"
-    ]
+    ],
+    "makefile.dryrunSwitches": [
+            "--always-make",
+            "--print-directory",
+            "--dry-run",
+            "--assume-old=Makefile"
+        ]
+
 }
