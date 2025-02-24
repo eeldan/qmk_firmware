@@ -27,7 +27,7 @@ enum layers {
 };
 
 enum tap_dances {
-    ENC_TAP
+    ENC_TAP,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -46,17 +46,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NUMPAD_MACROS] = LAYOUT(
-        C(G(KC_Q)), LSG(KC_3),   LSG(KC_4),   LSG(KC_4),     LSG(KC_R),  KC_NO,      KC_NO,    KC_NO,    KC_7,     KC_8,     KC_9,     RU_HA,   TD(ENC_TAP),
-        KC_NO,      KC_NO,       G(KC_SLSH),  C(G(KC_SPC)),  KC_NO,      LSG(KC_G),  KC_NO,    KC_NO,    KC_4,     KC_5,     KC_6,     RU_YO,
-        KC_LSFT,    G(KC_BSLS),  KC_NO,       LAG(KC_C),     LSG(KC_V),  LAG(KC_V),  KC_NO,    KC_NO,    KC_3,     KC_2,     KC_1,     RU_HARD,
-        _______,    _______,     _______,     _______,       _______,    _______,    _______,  _______,  _______,  KC_0,     KC_NO,    KC_NO
+        C(G(KC_Q)), LSG(KC_3),   LSG(KC_4),   LSG(KC_4),     LSG(KC_R),  KC_NO,      KC_NO,    KC_7,     KC_8,     KC_9,     KC_RBRC,    KC_LBRC,  TD(ENC_TAP),
+        KC_NO,      KC_NO,       G(KC_SLSH),  C(G(KC_SPC)),  KC_NO,      LSG(KC_G),  KC_NO,    KC_4,     KC_5,     KC_6,     KC_NO,      KC_BSLS,
+        KC_LSFT,    G(KC_BSLS),  KC_NO,       LAG(KC_C),     LSG(KC_V),  LAG(KC_V),  KC_NO,    KC_1,     KC_2,     KC_3,     KC_NO,      KC_NO,
+        _______,    _______,     _______,     _______,       _______,    _______,    _______,  _______,  KC_0,     _______,  KC_NO,      KC_NO
     ),
 
     [_SPECIAL] = LAYOUT(
         KC_TILD,  KC_GRV,   KC_HASH,  KC_LCBR,  KC_RCBR,  KC_AMPR,  KC_AT,    KC_LPRN,  KC_RPRN,  KC_QUOT,  KC_DQUO,  KC_PIPE, TD(ENC_TAP),
         KC_PERC,  KC_NO  ,  KC_DLR,   KC_SCLN,  KC_NO  ,  KC_NO  ,  KC_MINS,  KC_DOT,   KC_COMM,  KC_EXLM,  KC_QUES,  KC_UNDS,
         KC_BSLS,  KC_LABK,  KC_RABK,  KC_LBRC,  KC_NO  ,  KC_NO  ,  KC_SLSH,  KC_PLUS,  KC_MINS,  KC_ASTR,  KC_EQL,   KC_NO,
-        _______,  KC_CIRC,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______
+        QK_BOOT,  KC_CIRC,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______
     )
 };
 
